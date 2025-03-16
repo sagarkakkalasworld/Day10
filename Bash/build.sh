@@ -5,10 +5,19 @@ sudo mkdir gold
 cd gold/
 sudo git clone https://github.com/sagarkakkalasworld/Day10.git
 cd Day10/Code
+##the below lines of script are to store build files in s3 bucket
+sudo npm install react-scripts
+sudo npm run build
+sudo chmod 777 build
+current_date=$(date +%d%m%Y)
+aws s3api put-object --bucket buildartifactoryreactmicrok8s --key "${current_date}/"
+aws s3 cp --recursive build "s3://buildartifactoryreactmicrok8s/${current_date}/$(basename build)"
+##the below lines of script are to have docker images with git commit id tags
 git_commit=$(sudo git rev-parse HEAD)
 sudo docker build -t react-microk8s -f golddockerfile .
 sudo docker tag react-microk8s:$git_commit sagarkakkalasworld/react-microk8s:$git_commit
 sudo docker push sagarkakkalasworld/react-microk8s:$git_commit
+##the below lines of script are to store our git commit id tags in s3 bucket
 aws s3 rm s3://gitcommittagbucket/new_value.txt
 sudo touch new_value.txt
 sudo chmod 777 new_value.txt
