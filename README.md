@@ -10,7 +10,7 @@ You can use the videos and blogs mentioned here to practice and gain confidence 
 [Build Artifacts to AWS S3 Bucket](https://www.sagarkakkalasworld.com/2024/08/import-awsinstance.html)
 
 ### **GitHub Repo**  
-[`Day9`](https://github.com/sagarkakkalasworld/Day10)
+[`Day10`](https://github.com/sagarkakkalasworld/Day10)
 
 ### **Videos**
 - [Watch in English](https://youtu.be/jx2zn4lwqHw?feature=shared)  
